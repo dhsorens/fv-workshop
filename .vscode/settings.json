@@ -1,0 +1,9 @@
+{
+  "files.exclude": {
+    "**/.lake": true
+  },
+  "search.exclude": {
+    "**/.lake": true
+  },
+  "editor.unicodeHighlight.ambiguousCharacters": false
+}

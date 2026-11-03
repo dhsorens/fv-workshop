@@ -1,0 +1,8 @@
+[package]
+name = "token"
+version = "0.1.0"
+edition = "2021"
+description = "The Rust code verified in the workshop: a token transfer, arithmetic primitives, and 256-bit addition."
+
+[lib]
+path = "src/lib.rs"

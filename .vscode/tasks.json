@@ -1,0 +1,18 @@
+{
+  // Cmd+Shift+P → "Tasks: Run Task".
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Workshop: check setup",
+      "type": "shell",
+      "command": "scripts/check-setup.sh",
+      "problemMatcher": []
+    },
+    {
+      "label": "Workshop: check warnings and solutions",
+      "type": "shell",
+      "command": "scripts/check.sh .",
+      "problemMatcher": []
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+name = "workshop"
+version = "0.1.0"
+defaultTargets = ["Workshop", "Solutions"]
+
+# The whole workshop uses only core Lean: no Mathlib, fast setup.
+
+[[lean_lib]]
+name = "Workshop"
+
+[[lean_lib]]
+name = "Solutions"

@@ -1,0 +1,8 @@
+.lake/
+.DS_Store
+
+# Presenter-only: the slide sources, private notes and annotated exercises.
+# The built deck is committed in deck/.
+/slides/
+/presenter/
+BRIEF.md

@@ -1,0 +1,273 @@
+/* Styling for the workshop deck. */
+
+/* Left-align body copy; reveal themes center it by default. */
+.reveal .slides section,
+.reveal .slides section :is(h1, h2, h3, h4, h5, h6, p, li, blockquote, td, th) {
+  text-align: left;
+}
+
+:root {
+  --verso-code-font-family: "SF Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace;
+}
+
+/* Rust and its Lean translation, side by side (`:::hstack`). */
+.reveal .r-hstack {
+  align-items: flex-start;
+  gap: 1em;
+}
+.reveal .r-hstack > * {
+  flex: 1 1 0;
+  min-width: 0;
+  font-size: 0.6em;
+}
+
+/* Non-Lean code blocks (e.g. Rust): full width and readable. */
+.reveal pre {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 0.75em;
+}
+
+.reveal pre code {
+  font-family: var(--verso-code-font-family);
+}
+
+/* Smaller type than the theme default: slides here carry code and tables. */
+.reveal .slides > section {
+  font-size: 0.7em;
+}
+
+.reveal h1 {
+  font-size: 1.9em;
+  text-transform: none;
+}
+
+/* Slides stacked in a column render their titles as <h3>; size them like the
+   <h2> of a standalone slide. (No slide uses `###` headings itself.) */
+.reveal h3 {
+  font-size: var(--r-heading2-size);
+}
+
+.reveal table {
+  font-size: 0.9em;
+}
+
+.reveal table td,
+.reveal table th {
+  padding: 0.25em 0.6em;
+}
+
+/* "💻 Your turn" exercise callout. */
+.reveal .your-turn {
+  border-left: 0.3em solid #2a9d8f;
+  background: #e9f5f3;
+  padding: 0.4em 0.8em;
+}
+
+/* "Live demo" callout. */
+.reveal .demo {
+  border-left: 0.3em solid #e76f51;
+  background: #fdf0ec;
+  padding: 0.4em 0.8em;
+}
+/* A multi-part demo callout: left-aligned, with its code blocks inset. */
+.reveal .r-vstack.demo {
+  align-items: stretch;
+  gap: 0.2em;
+}
+.reveal .r-vstack.demo > p {
+  margin: 0.3em 0;
+}
+.reveal .r-vstack.demo > pre {
+  margin: 0.1em 0 0.3em;
+}
+
+/* Where to find the code shown on a slide. */
+.reveal .filepath {
+  font-family: monospace;
+  font-size: 0.55em;
+  color: #6c757d;
+}
+
+.reveal .small {
+  font-size: 0.7em;
+}
+
+/* "The ingredients" table (Part 1): a card with a navy header row, matching
+   the section slides, and the ingredient names as row headers. */
+.reveal table.slide-table.ingredients {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(29, 53, 87, 0.18);
+  font-size: 0.85em;
+}
+.reveal table.slide-table.ingredients th,
+.reveal table.slide-table.ingredients td {
+  padding: 1em 0.9em;
+  vertical-align: middle;
+}
+.reveal table.slide-table.ingredients thead th {
+  padding-top: 0.75em;
+  padding-bottom: 0.75em;
+}
+.reveal table.slide-table.ingredients th p,
+.reveal table.slide-table.ingredients td p {
+  margin: 0;
+}
+.reveal table.slide-table.ingredients thead th {
+  background: #1d3557;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.reveal table.slide-table.ingredients tbody th {
+  color: #1d3557;
+  font-weight: 700;
+  white-space: nowrap;
+  border-left: 5px solid #457b9d;
+}
+.reveal table.slide-table.ingredients tbody tr:nth-child(even) {
+  background: #f1f5f9;
+}
+.reveal table.slide-table.ingredients tbody tr + tr > * {
+  border-top: 1px solid #dde3ea;
+}
+/* The checker is what makes the rest trustworthy: give its row a little weight. */
+.reveal table.slide-table.ingredients tbody tr:last-child {
+  background: #e6eef6;
+}
+
+/* "What do you actually get?" (Part 1): two cards, guaranteed vs. still trusted. */
+.reveal .r-hstack.get-cards {
+  align-items: stretch;
+  gap: 1.5em;
+  margin-top: 0.6em;
+}
+.reveal .get-cards > .r-vstack {
+  --card: #2a9d8f;
+  --card-tint: #e8f5f3;
+  --marker: "✓";
+  flex: 1 1 0;
+  align-items: stretch;
+  justify-content: flex-start;
+  background: #fff;
+  border-top: 6px solid var(--card);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(29, 53, 87, 0.16);
+  overflow: hidden;
+}
+.reveal .get-cards > .r-vstack:nth-child(2) {
+  --card: #e09f3e;
+  --card-tint: #fdf3e4;
+  --marker: "!";
+}
+.reveal .get-cards > .r-vstack > p:first-child {
+  margin: 0;
+  padding: 0.6em 1em;
+  background: var(--card-tint);
+  color: #1d3557;
+  font-size: 1.15em;
+  text-align: left;
+}
+.reveal .get-cards > .r-vstack > ul {
+  list-style: none;
+  font-size: 1.2em;
+  margin: 0;
+  padding: 0.6em 1.1em 0.9em;
+}
+.reveal .get-cards > .r-vstack > ul > li {
+  position: relative;
+  padding-left: 1.7em;
+  margin: 0.55em 0;
+  line-height: 1.35;
+}
+.reveal .get-cards > .r-vstack > ul > li::before {
+  content: var(--marker);
+  position: absolute;
+  left: 0;
+  top: 0.05em;
+  width: 1.25em;
+  height: 1.25em;
+  border-radius: 50%;
+  background: var(--card);
+  color: #fff;
+  font-size: 0.85em;
+  font-weight: 700;
+  line-height: 1.25em;
+  text-align: center;
+}
+
+/* A slide's one-line takeaway. */
+.reveal .takeaway {
+  margin-top: 1.2em;
+  padding: 0.7em 1em;
+  background: #eef3f8;
+  border-left: 6px solid #1d3557;
+  border-radius: 6px;
+  color: #1d3557;
+  font-size: 1.05em;
+}
+
+/* "The trusted computing base" (Part 1): one row per thing you trust. */
+.reveal ul.tcb {
+  display: block;
+  list-style: none;
+  margin: 0.4em 0 0;
+  padding: 0;
+  font-size: 0.85em;
+}
+.reveal ul.tcb > li {
+  margin: 0.35em 0;
+  padding: 0.4em 0.9em;
+  background: #fdf3e4;
+  border-left: 6px solid #e09f3e;
+  border-radius: 6px;
+}
+.reveal ul.tcb > li p {
+  margin: 0;
+}
+
+/* Numbered steps (e.g. the two halves of a proof by induction). */
+.reveal ol.steps {
+  display: block;
+  list-style: none;
+  counter-reset: step;
+  margin: 0.3em 0 0.6em;
+  padding: 0;
+}
+.reveal ol.steps > li {
+  counter-increment: step;
+  position: relative;
+  margin: 0.4em 0;
+  padding: 0.45em 0.9em 0.45em 2.6em;
+  background: #eef3f8;
+  border-radius: 6px;
+}
+.reveal ol.steps > li p {
+  margin: 0;
+}
+.reveal ol.steps > li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0.6em;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.4em;
+  height: 1.4em;
+  border-radius: 50%;
+  background: #1d3557;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9em;
+  line-height: 1.4em;
+  text-align: center;
+}
+
+/* "Follow along": QR code and repository link, centred */
+.reveal .slides section p.repo-qr {
+  text-align: center;
+  margin: 0.2em 0;
+}

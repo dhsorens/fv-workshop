@@ -1,0 +1,13 @@
+{
+  // Fallback for attendees who can't install Lean locally: open this
+  // repository in GitHub Codespaces (Code → Codespaces → Create).
+  // Setup runs automatically and takes a few minutes.
+  "name": "Formal Verification in Lean",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "hostRequirements": { "cpus": 2, "memory": "4gb" },
+  "postCreateCommand": "curl -sSfL https://elan.lean-lang.org/elan-init.sh | sh -s -- -y --default-toolchain none && . \"$HOME/.elan/env\" && scripts/check-setup.sh",
+  "remoteEnv": { "PATH": "${containerEnv:PATH}:/home/vscode/.elan/bin" },
+  "customizations": {
+    "vscode": { "extensions": ["leanprover.lean4"] }
+  }
+}
